@@ -1,0 +1,95 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+    background: #12161c;
+    color: #e6e9ee;
+}
+
+header {
+    padding: 16px 20px;
+    background: #1b2230;
+    border-bottom: 1px solid #2a3344;
+}
+
+h1 { margin: 0 0 12px; font-size: 22px; }
+h2 { font-size: 17px; margin: 20px 0 10px; }
+
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+
+button {
+    padding: 8px 14px;
+    border: 1px solid #3a4660;
+    border-radius: 6px;
+    background: #26304a;
+    color: inherit;
+    cursor: pointer;
+}
+button:hover { background: #31405f; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+nav button.active { background: #3d6fd8; border-color: #3d6fd8; }
+
+main { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+.tab { display: none; }
+.tab.active { display: block; }
+
+input, select {
+    padding: 8px 10px;
+    border: 1px solid #3a4660;
+    border-radius: 6px;
+    background: #0f131a;
+    color: inherit;
+}
+
+form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+form h2 { width: 100%; margin: 8px 0 0; }
+#form-tambah, #form-login, #form-register { max-width: 420px; }                  /* diubah */
+#form-tambah input, #form-login input, #form-register input { width: 100%; }    /* diubah */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 12px;
+}
+
+.kartu {
+    padding: 12px;
+    border: 1px solid #2a3344;
+    border-radius: 8px;
+    background: #1b2230;
+}
+.kartu h3 { margin: 0 0 6px; font-size: 16px; }
+.kartu p { margin: 4px 0; font-size: 13px; }
+.meta { color: #9aa6bd; }
+.harga { font-weight: 600; }
+.rating { margin-left: 8px; color: #6fcf97; font-weight: 400; }
+
+.pager { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid #2a3344; }
+th { color: #9aa6bd; }
+
+.pesan { width: 100%; margin: 4px 0; font-size: 13px; color: #f2994a; }
+.pesan.ok { color: #6fcf97; }
+
+#hasil-top li { padding: 6px 0; }
+
+.tautan { width: 100%; margin: 4px 0 0; font-size: 14px; opacity: .85; }  /* diubah: width */
+.tautan a { color: #6ea8ff; }
+
+/* Harus paling akhir: atribut hidden menang atas display:flex di atas */
+[hidden] {
+    display: none !important;
+}
+
+.hapus {
+    margin-top: 8px;
+    padding: 4px 10px;
+    font-size: 13px;
+    border-color: #7a3340;
+    color: #ff8a8a;
+}
+.hapus:hover { background: #4a1f28; }

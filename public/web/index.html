@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steam Games Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Steam Games Explorer</h1>
+        <nav>
+            <button data-tab="daftar" class="active">Daftar</button>
+            <button data-tab="top">Top</button>
+            <button data-tab="statistik">Statistik</button>
+            <button data-tab="akun">Akun</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Tab 1: daftar dan pencarian -->
+        <section id="daftar" class="tab active">
+            <form id="form-cari">
+                <input id="q" placeholder="Cari nama game (mis. portal)">
+                <input id="genre" placeholder="Genre (mis. RPG)">
+                <input id="min" type="number" min="0" step="0.01" placeholder="Harga min">
+                <input id="max" type="number" min="0" step="0.01" placeholder="Harga maks">
+                <button type="submit">Cari</button>
+            </form>
+            <p id="info"></p>
+            <div id="hasil" class="grid"></div>
+            <div class="pager">
+                <button id="prev">Sebelumnya</button>
+                <span id="halaman"></span>
+                <button id="next">Berikutnya</button>
+            </div>
+        </section>
+
+        <!-- Tab 2: top game -->
+        <section id="top" class="tab">
+            <label>Tampilkan
+                <select id="limit">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                </select>
+                game terbaik
+            </label>
+            <ol id="hasil-top"></ol>
+        </section>
+
+        <!-- Tab 3: statistik -->
+        <section id="statistik" class="tab">
+            <h2>Per genre</h2>
+            <table id="tabel-genre"></table>
+            <h2>Per tahun rilis</h2>
+            <table id="tabel-tahun"></table>
+        </section>
+
+        <!-- Tab 4: akun -->
+        <section id="akun" class="tab">
+            <form id="form-login">
+                <h2>Login</h2>
+                <input id="email" type="email" placeholder="Email" required>
+                <input id="password" type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p id="pesan-login" class="pesan"></p>
+                <p class="tautan">Belum punya akun?
+                    <a href="#" id="ke-register">Daftar</a></p>
+            </form>
+
+            <form id="form-register" hidden>
+                <h2>Daftar akun</h2>
+                <input id="r-nama" placeholder="Nama" required>
+                <input id="r-email" type="email" placeholder="Email" required>
+                <input id="r-password" type="password" placeholder="Password (min. 8 karakter)" required>
+                <input id="r-konfirmasi" type="password" placeholder="Ulangi password" required>
+                <button type="submit">Daftar</button>
+                <p id="pesan-register" class="pesan"></p>
+                <p class="tautan">Sudah punya akun?
+                    <a href="#" id="ke-login">Login</a></p>
+            </form>
+
+            <div id="box-user" hidden>
+                <h2>Halo, <span id="nama-user"></span></h2>
+                <button id="btn-logout">Logout</button>
+
+                <form id="form-tambah">
+                    <h2>Tambah game</h2>
+                    <input id="t-name" placeholder="Nama game" required>
+                    <input id="t-genres" placeholder="Genre (pisah dengan ;, mis. Indie;Casual)" required>
+                    <input id="t-price" type="number" min="0" step="0.01" placeholder="Harga" required>
+                    <input id="t-date" type="date" required>
+                    <input id="t-pos" type="number" min="0" placeholder="Rating positif" required>
+                    <input id="t-neg" type="number" min="0" placeholder="Rating negatif" required>
+                    <input id="t-key" type="password" placeholder="API key (diketik manual)" required>
+                    <button type="submit">Simpan</button>
+                    <p id="pesan-tambah" class="pesan"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
